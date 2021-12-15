@@ -105,7 +105,6 @@ class MahasiswaController extends Controller
         $srt_permohonan = Permohonan::find($id);
         $srt_permohonan->nama_mitra = $request->nama_mitra;
         $srt_permohonan->alamat_mitra = $request->alamat_mitra;
-        $srt_permohonan->anggota = $request->anggota;
         $srt_permohonan->tgl_kirim = $request->tgl_kirim;
         $srt_permohonan->keterangan = $request->keterangan;
         $srt_permohonan->save();

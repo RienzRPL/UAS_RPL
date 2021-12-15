@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="adminLTE/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="adminLTE/dist/css/AdminLTE.min.css">
+  <!-- Datatables -->
+  <link rel="stylesheet" href="adminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="adminLTE/dist/css/skins/_all-skins.min.css">
@@ -196,6 +198,7 @@
 <script src="adminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <!-- FastClick -->
 <script src="adminLTE/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -203,5 +206,25 @@
 <!-- AdminLTE for demo purposes -->
 <script src="adminLTE/dist/js/demo.js"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+<!-- DataTables -->
+<script src="adminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="adminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+
 </body>
 </html>

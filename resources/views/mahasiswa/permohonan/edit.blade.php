@@ -28,11 +28,6 @@
                 <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" value="{{ $srt_permohonan->alamat_mitra }}" >
                 </div>
 
-                <div class="mb-3"> 
-                <label for="anggota" class="form-label">Anggota</label>
-                <input type="text" class="form-control" name="anggota" id="anggota" value="{{ $srt_permohonan->anggota }}">
-                </div>
-
                 <div class="mb-3">
                 <label for="tgl_kirim" class="form-label">Tanggal Kirim</label>
                 <input type="date" class="form-control" name="tgl_kirim" id="tgl_kirim" value="{{ $srt_permohonan->tgl_kirim }}"  >

@@ -5,81 +5,46 @@
     <div class="row">
         
             
-        <div class="card col-md-4">
-        <br>
-        <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title text-center">Data Pengajuan Surat Tugas</h3>
-        </div>
-        <hr>
-
-                <div class="card-body">
-                <form action="/surat-tugas/simpan" method="post">
-                    {{ csrf_field() }}
-
-                <div class="mb-3">
-                <label for="nama_mitra" class="form-label">Nama Mitra</label>
-                <input type="text" class="form-control" name="nama_mitra" id="nama_mitra"  >
-                </div>
-
-                <div class="mb-3">
-                <label for="alamat_mitra" class="form-label">Alamat Mitra</label>
-                <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" >
-                </div>
-
-                <div class="mb-3">
-                <label for="anggota" class="form-label">Anggota</label>
-                <input type="text" class="form-control" name="anggota" id="anggota" >
-                </div>
-
-                <div class="mb-3">
-                <label for="tgl_kirim" class="form-label">Tanggal Kirim</label>
-                <input type="date" class="form-control" name="tgl_kirim" id="tgl_kirim"  >
-                </div>
-
-                <div class="mb-3">
-                <label for="keterangan" class="form-label">Keterangan</label>
-                <textarea type="text" class="form-control" name="keterangan" id="keterangan" ></textarea>
-                </div>
-
-                <button class="btn btn-primary" type="submit" id="submit">Submit</button>
-                <a href="/home" class="btn btn-secondary">Kembali</a>
-                </form>
-                
-            </div>
-            </div>
-            </div>
         
-            <div class="card col-md-8">
+            <div class="card col-md-12">
         <br>
         <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title text-center">Data Surat Tugas</h3>
         </div>
         <hr>
-
+            
                 <div class="card-body">
                 <table class="table">
             <thead>
                 <tr>
                 <th scope="col">No</th>
-                <th scope="col">Nama Mitra</th>
-                <th scope="col">Alamat Mitra</th>
-                <th scope="col">Anggota</th>
+                <th scope="col">Nama Mahasiswa</th>
                 <th scope="col">Tanggal Kirim</th>
+                <th scope="col">Status</th>
                 <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-               @foreach($dt as $data)
+               @foreach($srt_tugas as $data)
                 <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-               <td>{{ $data->nama_mitra }}</td>
-               <td>{{ $data->alamat_mitra }}</td>
-               <td>{{ $data->anggota }}</td>
-               <td>{{ $data->tgl_kirim }}</td>
+
+                <td>{{ $data->id_user}}</td>
+       
+               <td>{{ $data->tgl_kirim->format('d-m-Y') }}</td>
                <td>
-                   <a href="/surat-tugas/edit/{{ $data->id }}" class="btn btn-primary">Edit</a>
+               @if($data->status == 0)
+                   <p class="text">Belum diverifikasi</p>
+                   @elseif($data->status == 1)
+                   <p class="text-success">Diterima</p>
+                   @elseif($data->status == 2)
+                   <p class="text-danger">Ditolak</p>
+                   @endif
+               </td>
+               <td>
+               <a href="/adm-surat-tugas/edit/{{ $data->id }}" class="btn btn-primary">Detail</a>
+               
                 </td>
                 </tr>
                @endforeach

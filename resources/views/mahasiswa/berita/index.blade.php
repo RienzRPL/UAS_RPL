@@ -41,10 +41,6 @@
                 <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" placeholder="alamat mitra" >
             </div>
             <div class="form-group">
-                <label for="anggota" class="form-label">Anggota</label>
-                <input type="text" class="form-control" name="anggota" id="anggota" placeholder="anggota" >
-            </div>
-            <div class="form-group">
                 <label for="tgl_kirim" class="form-label">Tanggal Kirim</label>
                 <input type="date" class="form-control" name="tgl_kirim" id="tgl_kirim" placeholder="tgl_kirim" >
             </div>
@@ -78,7 +74,6 @@
 <th scope="col">No</th>
 <th scope="col">Nama Mitra</th>
 <th scope="col">Alamat Mitra</th>
-<th scope="col">Anggota</th>
 <th scope="col">Tanggal Kirim</th>
 <th scope="col">Status</th>
 <th scope="col">Action</th>
@@ -90,7 +85,6 @@
 <th scope="row">{{ $loop->iteration }}</th>
 <td>{{ $data->nama_mitra }}</td>
 <td>{{ $data->alamat_mitra }}</td>
-<td>{{ $data->anggota }}</td>
 <td>{{ $data->tgl_kirim->format('d-m-Y') }}</td>
 <td>
 @if($data->status == 0)

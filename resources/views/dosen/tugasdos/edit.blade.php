@@ -1,7 +1,26 @@
 @extends('layouts.navbar')
 
+@section('title', 'Ubah Berita')
+
+@section('breadcrumbs')
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <!-- <small>Preview</small> -->
+      </h1>
+      <ol class="breadcrumb">
+      <li><a href="/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active"><a href="/surat-tugas-dsn"> Surat Tugas Dosen</a></li>
+        <!-- <li><a href="#">Forms</a></li>
+        <li class="active">General Elements</li> -->
+      </ol>
+    </section>
+@endsection
+
 @section('content')
-<div class="container">
+  <section class="content">
+  <div class="container">
     <div class="row">
         
             
@@ -9,12 +28,13 @@
         <br>
         <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title text-center"> Edit Data Pengajuan Surat Tugas</h3>
+          <h3 class="box-title text-center"> Edit Data Pengajuan Surat Tugas Dosen</h3>
         </div>
         <hr>
 
                 <div class="card-body">
                 <form action="/surat-tugas-dsn/update/{{ $srt_tugas->id }}" method="POST">
+                @method('put')
                     {{ csrf_field() }}
 
                 <input type="hidden" class="form-control" name="id" id="id" value="{{ $srt_tugas->id }}">
@@ -24,13 +44,13 @@
                 </div>
 
                 <div class="mb-3">
-                <label for="lokasi_kegiatan" class="form-label">Lokasi Kegiatan </label>
-                <input type="text" class="form-control" name="lokasi_kegiatan" id="lokasi_kegiatan" value="{{ $srt_tugas->lokasi_kegiatan }}" >
+                <label for="alamat_mitra" class="form-label">Alamat Mitra</label>
+                <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" value="{{ $srt_tugas->alamat_mitra }}" >
                 </div>
 
                 <div class="mb-3">
-                <label for="tgl_pelaksanaan" class="form-label">Tanggal Pelaksanaan</label>
-                <input type="date" class="form-control" name="tgl_pelaksanaan" id="tgl_pelaksanaan" value="{{ $srt_tugas->tgl_pelaksanaan }}"  >
+                <label for="tgl_kirim" class="form-label">Tanggal Kirim</label>
+                <input type="date" class="form-control" name="tgl_kirim" id="tgl_kirim" value="{{ $srt_tugas->tgl_kirim }}"  >
                 </div>
 
                 <div class="mb-3">
@@ -45,8 +65,17 @@
             </div>
             </div>
             </div>
-        
-        
-    </div>
+  </section>
 </div>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <!-- <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.0
+    </div> -->
+    <strong>Copyright &copy; {{date('Y')}} <a href="">APSURSI</a>.</strong> All rights
+    reserved.
+  </footer>
+  
 @endsection
+

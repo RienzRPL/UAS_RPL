@@ -19,7 +19,6 @@ class CreateTugasTable extends Migration
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_anggota')->unsigned();
             $table->foreign('id_anggota')->references('id')->on('anggota')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('kode_surat');
             $table->string('nama_mitra');
             $table->string('alamat_mitra');
             $table->date('tgl_kirim');

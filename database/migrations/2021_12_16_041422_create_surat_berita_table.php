@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUndanganTable extends Migration
+class CreateBeritaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUndanganTable extends Migration
      */
     public function up()
     {
-        Schema::create('undangan', function (Blueprint $table) {
+        Schema::create('berita', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
@@ -32,6 +32,6 @@ class CreateUndanganTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('undangan');
+        Schema::dropIfExists('berita');
     }
 }

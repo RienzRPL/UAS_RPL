@@ -10,6 +10,6 @@ class tugas extends Model
     use HasFactory;
 
     protected $table = 'tugas';
-    protected $fillable = ['id_user','nama_mitra','alamat_mitra','anggota','tgl_kirim','keterangan'];
+    protected $fillable = ['id_user','nama_mitra','alamat_mitra','tgl_kirim','keterangan'];
     protected $dates = ['tgl_kirim'];
 }

@@ -1,7 +1,26 @@
 @extends('layouts.navbar')
 
+@section('title', 'Ubah Berita')
+
+@section('breadcrumbs')
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <!-- <small>Preview</small> -->
+      </h1>
+      <ol class="breadcrumb">
+      <li><a href="/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active"><a href="/surat-berita"> Surat Berita</a></li>
+        <!-- <li><a href="#">Forms</a></li>
+        <li class="active">General Elements</li> -->
+      </ol>
+    </section>
+@endsection
+
 @section('content')
-<div class="container">
+  <section class="content">
+  <div class="container">
     <div class="row">
         
             
@@ -15,6 +34,7 @@
 
                 <div class="card-body">
                 <form action="/surat-berita/update/{{ $srt_berita->id }}" method="POST">
+                @method('put')
                     {{ csrf_field() }}
 
                 <input type="hidden" class="form-control" name="id" id="id" value="{{ $srt_berita->id }}">
@@ -26,11 +46,6 @@
                 <div class="mb-3">
                 <label for="alamat_mitra" class="form-label">Alamat Mitra</label>
                 <input type="text" class="form-control" name="alamat_mitra" id="alamat_mitra" value="{{ $srt_berita->alamat_mitra }}" >
-                </div>
-
-                <div class="mb-3"> 
-                <label for="anggota" class="form-label">Anggota</label>
-                <input type="text" class="form-control" name="anggota" id="anggota" value="{{ $srt_berita->anggota }}">
                 </div>
 
                 <div class="mb-3">
@@ -50,8 +65,17 @@
             </div>
             </div>
             </div>
-        
-        
-    </div>
+  </section>
 </div>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <!-- <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.0
+    </div> -->
+    <strong>Copyright &copy; {{date('Y')}} <a href="">APSURSI</a>.</strong> All rights
+    reserved.
+  </footer>
+  
 @endsection
+

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKodeSuratTugasdosTable extends Migration
+class CreateKodeBeritaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateKodeSuratTugasdosTable extends Migration
      */
     public function up()
     {
-        Schema::create('kode_surat_tugasdos', function (Blueprint $table) {
+        Schema::create('kode_berita', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_surat')->unsigned();
-            $table->foreign('id_surat')->references('id')->on('surat')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_surat')->references('id')->on('berita')->onDelete('cascade')->onUpdate('cascade');
             $table->string('kode_surat');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateKodeSuratTugasdosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kode_surat_tugasdos');
+        Schema::dropIfExists('kode_berita');
     }
 }

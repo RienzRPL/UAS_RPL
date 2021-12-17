@@ -10,6 +10,6 @@ class undangan extends Model
     use HasFactory;
 
     protected $table = 'undangan';
-    protected $fillable = ['id_user','nama_mitra','alamat_mitra','anggota','tgl_kirim','keterangan'];
+    protected $fillable = ['id_user','nama_mitra','alamat_mitra','tgl_kirim','keterangan'];
     protected $dates = ['tgl_kirim'];
 }

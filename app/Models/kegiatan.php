@@ -10,7 +10,11 @@ class kegiatan extends Model
     use HasFactory;
 
     protected $table = 'kegiatan';
-    protected $fillable = ['id_user','kode_surat','nama_mitra','alamat_mitra','anggota','tgl_kirim','keterangan','status'];
+    protected $fillable = ['id_user','nama_mitra','alamat_mitra','tgl_kirim','keterangan'];
     protected $dates = ['tgl_kirim'];
 
+    public function users()
+    {
+    	return $this->hasMany('App\Models\User');
+    }
 }

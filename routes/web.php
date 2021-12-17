@@ -52,7 +52,7 @@ Route::post('/surat-tugas/update/{id}', '\App\Http\Controllers\MahasiswaControll
 Route::get('/surat-berita-acara', '\App\Http\Controllers\MahasiswaController@tampil_srt_berita');
 Route::post('/surat-berita/simpan', '\App\Http\Controllers\MahasiswaController@simpan_berita');
 Route::get('/surat-berita/edit/{id}', '\App\Http\Controllers\MahasiswaController@edit_berita');
-Route::post('/surat-berita/update/{id}', '\App\Http\Controllers\MahasiswaController@update_berita');
+Route::put('/surat-berita/update/{id}', '\App\Http\Controllers\MahasiswaController@update_berita');
 
 Route::get('/surat-pengajuan/tambah', '\App\Http\Controllers\MahasiswaController@tambah_srt_pengajuan');
 Route::post('/surat-pengajuan/simpan', '\App\Http\Controllers\MahasiswaController@simpan');

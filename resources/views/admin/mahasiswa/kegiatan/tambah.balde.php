@@ -20,10 +20,6 @@
                 
                     <input type="hidden" class="form-control" name="id_surat" id="id_surat" value="{{ $det->id }}" readonly=""  >
                     <br>
-                <div class="mb-3">
-                <label for="kode_surat" class="form-label">Kode Surat</label>
-                <input type="text" class="form-control" name="kode_surat" id="kode_surat" value="{{ $kode }}" readonly=""  >
-                </div>
     
                 <br> 
 

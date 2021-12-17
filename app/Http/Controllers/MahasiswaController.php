@@ -148,13 +148,6 @@ class MahasiswaController extends Controller
 
     public function simpan_kegiatan(Request $request)
     {   
-        $count = Kegiatan::where('kode_surat',$request->input('kode_surat'))->count();
-
-        if($count>0){
-            // Session::flash('message', 'Already exist!');
-            // Session::flash('message_type', 'danger');
-            return redirect ('/surat-kegiatan');
-        }
 
         // Membatasi hak akses user
         if(Auth::user()->role == 'Admin') {
@@ -167,10 +160,8 @@ class MahasiswaController extends Controller
 
         Kegiatan::create([
             'id_user' => $id,
-            'kode_surat' => $request->kode_surat,
             'nama_mitra' => $request->nama_mitra,
             'alamat_mitra' => $request->alamat_mitra,
-            'anggota' => $request->anggota,
             'tgl_kirim' => $request->tgl_kirim,
             'keterangan' => $request->keterangan
         ]);
@@ -211,7 +202,6 @@ class MahasiswaController extends Controller
         $srt_kegiatan = Kegiatan::find($id);
         $srt_kegiatan->nama_mitra = $request->nama_mitra;
         $srt_kegiatan->alamat_mitra = $request->alamat_mitra;
-        $srt_kegiatan->anggota = $request->anggota;
         $srt_kegiatan->tgl_kirim = $request->tgl_kirim;
         $srt_kegiatan->keterangan = $request->keterangan;
         $srt_kegiatan->save();
@@ -302,7 +292,6 @@ class MahasiswaController extends Controller
         $srt_undangan = Undangan::find($id);
         $srt_undangan->nama_mitra = $request->nama_mitra;
         $srt_undangan->alamat_mitra = $request->alamat_mitra;
-        $srt_undangan->anggota = $request->anggota;
         $srt_undangan->tgl_kirim = $request->tgl_kirim;
         $srt_undangan->keterangan = $request->keterangan;
         $srt_undangan->save();
@@ -469,11 +458,10 @@ class MahasiswaController extends Controller
         $srt_berita = Berita::find($id);
         $srt_berita->nama_mitra = $request->nama_mitra;
         $srt_berita->alamat_mitra = $request->alamat_mitra;
-        $srt_berita->anggota = $request->anggota;
         $srt_berita->tgl_kirim = $request->tgl_kirim;
         $srt_berita->keterangan = $request->keterangan;
         $srt_berita->save();
-        return view('mahasiswa.berita.index',compact('dt','$srt_berita'));
+        return view('mahasiswa.berita.index',compact('dt','srt_berita'));
     }
     //Surat Berita
 
